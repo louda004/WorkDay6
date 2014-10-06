@@ -12,6 +12,7 @@ Public Class Form1
         Cst = txtC.Text
         Dst = txtD.Text
 
+
         ' All input must be numbers
         If Not (IsNumeric(Ast) And IsNumeric(Bst) And IsNumeric(Cst) _
                 And IsNumeric(Dst)) Then
@@ -26,8 +27,44 @@ Public Class Form1
         D = CDbl(Dst)
 
         ' Please write your code here...
+        Dim result As String
+        If (B < C) Or (D < A) Then
+            result = "No Intersection"
+        Else
+            Dim begPoint As Double
+            begPoint = Math.Max(A, C)
 
-        txtResult.Text = "Not implemented yet"
+            Dim endPoint As Double
+            endPoint = Math.Min(B, D)
+
+            result = "The intersection is from " & begPoint & " to " & endPoint
+
+
+        End If
+        txtResult.Text = (result)
     End Sub
 
+    Function FindIntersection(A As Double, B As Double, C As Double, D As Double) As String
+
+        Dim result As String
+        If (B < C) Or (D < A) Then
+            result = "No Intersection"
+        Else
+            Dim begPoint As Double
+            begPoint = Math.Max(A, C)
+
+            Dim endPoint As Double
+            endPoint = Math.Min(B, D)
+
+            result = "The intersection is from " & begPoint & " to " & endPoint
+
+
+        End If
+        Return result
+    End Function
+
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
